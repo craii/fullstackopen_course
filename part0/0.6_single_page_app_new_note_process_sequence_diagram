@@ -1,0 +1,17 @@
+note over browser:
+    click save button
+end note
+
+note over browser:
+    collect note text from form tag,
+    and append it to the existing note list,
+end note
+
+note over browser:
+    browser executes the event handler
+    that renders note list(new note INCLUDED) to display
+end note
+
+browser -> server: {content: note content, date: time stamp} POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+
+server -> browser: {message: succeeded or not} new note creation result
