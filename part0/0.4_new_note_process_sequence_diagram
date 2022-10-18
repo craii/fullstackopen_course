@@ -1,0 +1,41 @@
+note over browser:
+    collect text via form tag, 
+    and start a http request 
+end note
+
+browser -> server: form data {note: note_text} POST https://studies.cs.helsinki.fi/exampleapp/new_note
+
+note over server:
+    check and process the form data,
+    and (maybe) store in the data base
+end note
+
+browser -> server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+
+server -> browser: vanilla HTML code
+
+browser -> server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+
+server -> browser: main.css
+
+browser -> server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+
+server -> browser: main.js
+
+browser -> server: GET https://studies.cs.helsinki.fi/exampleapp/data.json 
+
+note over server:
+    get latest note(s) from the data base
+    and return to browser 
+end note
+
+server -> browser: [{"content":"AHH","date":"2022-1...},..., {...}]
+
+browser -> server: GET https://studies.cs.helsinki.fi/favicon.ico
+
+server -> browser: vanilla HTML code
+
+note over browser:
+    browser executes the event handler
+    that renders notes to display
+end note
